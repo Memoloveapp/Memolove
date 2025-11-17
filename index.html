@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memolove</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff2e63, #b62ff4);
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 32px 26px;
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      transform: translateY(20px);
+      animation: cardEnter 0.7s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes cardEnter {
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .logo-wrap img {
+      width: 120px;
+      animation: popIn 0.8s ease forwards;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .tagline {
+      font-size: 19px;
+      line-height: 1.5;
+      margin-top: 18px;
+      margin-bottom: 26px;
+      color: #333;
+      animation: fadeIn 1.4s ease forwards;
+    }
+
+    /* ------- EMAIL BAR ------- */
+
+    .email-form {
+      display: flex;
+      gap: 10px;
+      margin: 10px 0 26px 0;
+      animation: fadeIn 1.6s ease forwards;
+    }
+
+    .email-form input {
+      flex: 1;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .email-form input:focus {
+      outline: none;
+      border-color: #ff2e63;
+      box-shadow: 0 0 6px rgba(255,46,99,0.4);
+    }
+
+    .email-form button {
+      padding: 14px 22px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ff2e63, #b62ff4);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #8200cc;
+      transition: 0.15s;
+    }
+
+    .email-form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 0 #6d00a8;
+    }
+
+    .email-form button:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 0 #6d00a8;
+    }
+
+    /* ------- SOCIAL ------- */
+
+    .social-title {
+      margin-top: 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #555;
+      animation: fadeIn 1.7s ease forwards;
+    }
+
+    .social-links {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      animation: fadeIn 1.8s ease forwards;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: white;
+      background: linear-gradient(135deg, #ff2e63, #b62ff4);
+      box-shadow: 0 6px 0 #a100ff;
+      transition: 0.15s;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 0 #8200cc;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #777;
+      animation: fadeIn 2s ease forwards;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main class="card">
+
+    <!-- LOGO -->
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Memolove logo">
+    </div>
+
+    <!-- SLOGAN -->
+    <p class="tagline">
+      Love gets messy, your memories don’t have to.
+    </p>
+
+    <!-- EMAIL FORM (Formspree) -->
+    <form action="https://formspree.io/f/meovbjvo" method="POST" class="email-form">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit">Join</button>
+    </form>
+
+    <!-- SOCIAL -->
+    <p class="social-title">Follow Memolove</p>
+
+    <div class="social-links">
+      <a href="https://instagram.com/memoloveapp" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/@memoloveapp" target="_blank">TikTok</a>
+      <a href="https://x.com/memoloveapp" target="_blank">X (Twitter)</a>
+    </div>
+
+    <p class="footer-note">© <span id="year"></span> Memolove</p>
+
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
