@@ -11,7 +11,7 @@
     body {
       font-family: Arial, sans-serif;
       min-height: 100vh;
-      background: linear-gradient(135deg, #ff2e63, #b62ff4);
+      background: linear-gradient(135deg, #8B0010, #4A005F, #8A00CA);
       background-attachment: fixed;
       display: flex;
       justify-content: center;
@@ -33,7 +33,6 @@
       max-width: 480px;
       text-align: center;
       box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-      transform: translateY(20px);
       animation: cardEnter 0.7s ease forwards;
       opacity: 0;
     }
@@ -61,22 +60,22 @@
       animation: fadeIn 1.4s ease forwards;
     }
 
-    /* ------- EMAIL BAR ------- */
+    /* ------- EMAIL BAR (FIX MOBILE) ------- */
 
     .email-form {
       display: flex;
-      gap: 10px;
-      margin: 10px 0 26px 0;
+      flex-direction: column;    /* stack vertically */
+      gap: 12px;
+      margin-bottom: 26px;
       animation: fadeIn 1.6s ease forwards;
     }
 
     .email-form input {
-      flex: 1;
       padding: 14px 16px;
       border-radius: 10px;
       border: 1px solid #ddd;
       font-size: 16px;
-      transition: 0.2s;
+      width: 100%;
     }
 
     .email-form input:focus {
@@ -93,6 +92,7 @@
       color: white;
       font-size: 16px;
       cursor: pointer;
+      width: 100%;      /* full width on mobile */
       box-shadow: 0 6px 0 #8200cc;
       transition: 0.15s;
     }
@@ -157,23 +157,20 @@
 
   <main class="card">
 
-    <!-- LOGO -->
     <div class="logo-wrap">
       <img src="logo.png" alt="Memolove logo">
     </div>
 
-    <!-- SLOGAN -->
     <p class="tagline">
       Love gets messy, your memories don’t have to.
     </p>
 
-    <!-- EMAIL FORM (Formspree) -->
+    <!-- FIXED EMAIL FORM -->
     <form action="https://formspree.io/f/meovbjvo" method="POST" class="email-form">
       <input type="email" name="email" placeholder="Enter your email" required>
       <button type="submit">Join</button>
     </form>
 
-    <!-- SOCIAL -->
     <p class="social-title">Follow Memolove</p>
 
     <div class="social-links">
